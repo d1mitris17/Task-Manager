@@ -1,25 +1,26 @@
 package taskManagementSystem;
 
 public class Task {
-	private int ID;
+	private int ID; // declares class variables
 	private String name;
 	private String description;
 
-	public Task(int ID, String name, String description) {
+	public Task(int ID, String name, String description) { // Constructor with ID, name and description parameters
 		this.ID = ID;
 		this.name = name;
 		this.description = description;
 	}
 
-	public Task(int ID, String name) {
+	public Task(int ID, String name) { // Constructor with only ID and name parameters
 		this(ID, name, "");
 	}
 
-	public String displayTask() {
+	public String displayTask() { // returns textual representation of class
 		return "ID: " + this.ID + "\nName: " + this.name + "\nDescription: " + this.description;
 	}
 
-	public int getID() {
+	// getters for class variables
+	public int getID() { 
 		return this.ID;
 	}
 

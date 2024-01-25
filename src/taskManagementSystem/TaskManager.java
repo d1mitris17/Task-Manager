@@ -42,7 +42,7 @@ public class TaskManager {
 
 		}
 		else
-			System.out.println("No Tasks Added"); // outputs message if no tasks were found in arraylistå
+			System.out.println("No Tasks Added"); // outputs message if no tasks were found in arrayList
 
 	}
 
