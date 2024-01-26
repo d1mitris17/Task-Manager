@@ -35,15 +35,8 @@ public class TaskManager {
 		return this.tasks.size();
 	}
 
-	public void printTasks() { // Outputs textual representation of a class
-		if (this.getSize() > 0) {
-			for (Task task : this.tasks) // loop through tasks and print them using task class function
-				System.out.println(task.displayTask());
-
-		}
-		else
-			System.out.println("No Tasks Added"); // outputs message if no tasks were found in arrayList
-
+	public Task getTask(int i) {
+		return this.tasks.get(i);
 	}
 
 }

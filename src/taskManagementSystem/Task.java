@@ -16,7 +16,11 @@ public class Task {
 	}
 
 	public String displayTask() { // returns textual representation of class
-		return "ID: " + this.ID + "\nName: " + this.name + "\nDescription: " + this.description;
+		if (this.description.equals(null))
+			return "ID: " + this.ID + "\nName: " + this.name;
+		else
+			return "ID: " + this.ID + "\nName: " + this.name + "\nDescription: " + this.description;
+
 	}
 
 	// getters for class variables
