@@ -4,8 +4,7 @@ public class Run {
 
 	public static void main(String[] args) {
 		boolean run = true;  // used to let the main program run iteratively
-		String userInput, userInputName, userInputDescription; // used to hold values for user input
-		int userInputID = 0; // used to hold values for user input
+		String userInput; // used to hold values for user input
 		TaskManager tasks = new TaskManager(); // used to store all of the users tasks
 		TextUserInterface ui = new TextUserInterface();
 
@@ -23,16 +22,12 @@ public class Run {
 			}
 
 			case "A": { // Adds a new task
-				userInputID = ui.getID();
-				userInputName = ui.getTaskName();
-				userInputDescription = ui.getDescription();
-				tasks.addTask(new Task(userInputID, userInputName, userInputDescription)); // adds new task to arrayList
+				tasks.addTask(ui.addTask());
 				break;
 			}
 
 			case "R": { // removes task id entered
-				userInputID = ui.getID();
-				tasks.removeTask(userInputID);
+				tasks.removeTask(ui.removeTask());
 				break;
 			}
 

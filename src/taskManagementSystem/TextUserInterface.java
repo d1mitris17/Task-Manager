@@ -38,8 +38,37 @@ public class TextUserInterface {
 		System.out.println("[E]xit the program");
 		return sc.nextLine();
 	}
-
-	public int getID(){
+	
+	public Task addTask() {
+		int userInputID;
+		String userInputName, userInputDescription;
+		
+		while (true) { // Asks the user for an int and then iterates if an Integer error occurred
+			try {
+				System.out.println("Enter task ID: ");
+				userInputID = sc.nextInt();
+				sc.nextLine(); // gets rid of new line character that nextInt hasnt parsed
+			} catch (InputMismatchException e) { // catches exception if user entered a non integer
+				System.out.print("Error, a non integer was entered...");
+				sc.nextLine();
+				continue;
+			}
+			break;
+		}
+		
+		do { // keeps on asking user to name task until a non-empty string is entered
+			System.out.println("Enter new task name: "); 
+			userInputName = sc.nextLine();
+		} while (userInputName.equals("")); 
+		
+		System.out.println("Enter new task description(Optional): "); // Only asks user once as description is optional
+		userInputDescription = sc.nextLine();
+		
+		return new Task(userInputID, userInputName, userInputDescription); // adds new task to arrayList
+		
+	}
+	
+	public int removeTask() {
 		int userInputID;
 		while (true) { // Asks the user for an int and then iterates if an Integer error occurred
 			try {
@@ -54,20 +83,6 @@ public class TextUserInterface {
 			break;
 		}
 		return userInputID;
-	}
-
-	public String getTaskName() {
-		String userInputName;
-		do { // keeps on asking user to name task until a non-empty string is entered
-			System.out.println("Enter new task name: "); 
-			userInputName = sc.nextLine();
-		} while (userInputName.equals("")); 
-		return userInputName;
-	}
-
-	public String getDescription() {
-		System.out.println("Enter new task description(Optional): "); // Only asks user once as description is optional
-		return sc.nextLine();
 	}
 
 	public void endProgram() {
