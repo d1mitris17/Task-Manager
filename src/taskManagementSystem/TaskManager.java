@@ -9,26 +9,24 @@ public class TaskManager {
 		this.tasks = new ArrayList<Task>();
 	}
 
-	public void addTask(Task newTask) { 
+	public String addTask(Task newTask) { 
 		for (Task task : this.tasks) { // loops tasks to see if task ID exists already
 			if(task.getID() == newTask.getID()) {
-				System.out.println("Operation Invalid, Task already exists");
-				return; // use return statement to stop loop from continuing
+				return "Operation Invalid, Task already exists"; // use return statement to stop loop from continuing
 			}
 		}
 		this.tasks.add(newTask); // adds task if return statement is not reached - task ID is unique 
-		System.out.println("Task added");
+		return "Task added";
 	}
 
-	public void removeTask(int removeID) {
+	public String removeTask(int removeID) {
 		for (int i = 0; i < this.getSize(); i++) { // loops tasks to see if task ID exists to remove
 			if(this.tasks.get(i).getID() == removeID) {
 				this.tasks.remove(i); // removes task from list
-				System.out.println("Success");
-				return; // ends function when task ID is found and removed
+				return "Success"; // ends function when task ID is found and removed
 			}
 		}
-		System.out.println("Failure, task doesnt exist"); // prints fail message if task ID is not found and return is not reached
+		return "Failure, task doesnt exist"; // prints fail message if task ID is not found and return is not reached
 	}
 
 	public int getSize() { // makes it easier to get the task arrayList size
@@ -37,6 +35,18 @@ public class TaskManager {
 
 	public Task getTask(int i) {
 		return this.tasks.get(i);
+	}
+
+	public String toString() { // Outputs textual representation of a class
+		String s = "";
+		if (this.getSize() > 0) {
+			for (int i = 0; i < tasks.size(); i++) // loop through tasks and print them using task class function
+				s += this.tasks.get(i);
+		}
+		else
+			s += "No Tasks Added"; // outputs message if no tasks were found in arrayList
+		return s;
+
 	}
 
 }

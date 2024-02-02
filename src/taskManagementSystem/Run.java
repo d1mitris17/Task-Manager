@@ -13,7 +13,7 @@ public class Run {
 		while(run) { // Iteratively runs main body
 
 			userInput = ui.getUserChoice();
-
+			
 			switch (userInput.toUpperCase()) { // Uses a switch to perform function the user entered  
 
 			case "S": { // uses the class function printTasks to print all the tasks added

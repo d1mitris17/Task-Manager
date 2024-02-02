@@ -12,12 +12,7 @@ public class TextUserInterface {
 
 
 	public void printTasks(TaskManager tasks) { // Outputs textual representation of a class
-		if (tasks.getSize() > 0) {
-			for (int i = 0; i < tasks.getSize(); i++) // loop through tasks and print them using task class function
-				System.out.println(tasks.getTask(i).displayTask());
-		}
-		else
-			System.out.println("No Tasks Added"); // outputs message if no tasks were found in arrayList
+		System.out.println(tasks);
 
 	}
 
