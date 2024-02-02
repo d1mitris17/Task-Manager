@@ -16,7 +16,7 @@ public class Task {
 	}
 
 	public String toString() { // returns textual representation of class
-		if (this.description.equals(null))
+		if (this.description.equals(null) || this.description.equals(""))
 			return "ID: " + this.ID + "\nName: " + this.name;
 		else
 			return "ID: " + this.ID + "\nName: " + this.name + "\nDescription: " + this.description;
