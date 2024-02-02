@@ -25,6 +25,18 @@ public class Run {
 				tasks.addTask(ui.addTask());
 				break;
 			}
+			case "P": { // Adds a new task
+				tasks.addTask(ui.addPersonalTask());
+				break;
+			}
+			case "W": { // Adds a new task
+				tasks.addTask(ui.addWorkTask());
+				break;
+			}
+			case "T": { // Adds a new task
+				tasks.addTask(ui.addTeamWorkTask());
+				break;
+			}
 
 			case "R": { // removes task id entered
 				tasks.removeTask(ui.removeTask());
