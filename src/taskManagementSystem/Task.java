@@ -1,6 +1,6 @@
 package taskManagementSystem;
 
-public class Task {
+public abstract class Task {
 	private int ID; // declares class variables
 	private String name;
 	private String description;
@@ -16,6 +16,10 @@ public class Task {
 	}
 
 	public String toString() { // returns textual representation of class
+		return this.getDetails();
+	}
+
+	public String getDetails() { // returns textual representation of class
 		if (this.description.equals(null) || this.description.equals(""))
 			return "ID: " + this.ID + "\nName: " + this.name;
 		else

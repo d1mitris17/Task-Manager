@@ -13,8 +13,8 @@ public class TeamWorkTask extends Task {
 		this.teamName = teamName;
 	}
 	
-	public String toString() {
-		return "Task Type: Teamwork\n" + super.toString() + "\nTeam Name: " + this.teamName;
+	public String getDetails() {
+		return "Task Type: Teamwork\n" + super.getDetails() + "\nTeam Name: " + this.teamName;
 	}
 
 }

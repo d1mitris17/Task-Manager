@@ -1,4 +1,4 @@
-package taskManagementSystem;
+	package taskManagementSystem;
 
 public class Run {
 
@@ -20,11 +20,7 @@ public class Run {
 				ui.printTasks(tasks);
 				break;
 			}
-
-			case "A": { // Adds a new task
-				tasks.addTask(ui.addTask());
-				break;
-			}
+			
 			case "P": { // Adds a new task
 				tasks.addTask(ui.addPersonalTask());
 				break;

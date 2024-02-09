@@ -10,8 +10,8 @@ public class PersonalTask extends Task {
 		super(ID, name, description);
 	}
 	
-	public String toString() {
-		return "Task Type: Personal\n" + super.toString();
+	public String getDetails() {
+		return "Task Type: Personal\n" + super.getDetails();
 	}
 
 }

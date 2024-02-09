@@ -10,8 +10,8 @@ public class WorkTask extends Task {
 		super(ID, name);
 	}
 	
-	public String toString() {
-		return "Task Type: Work\n" + super.toString();
+	public String getDetails() {
+		return "Task Type: Work\n" + super.getDetails();
 	}
 
 }

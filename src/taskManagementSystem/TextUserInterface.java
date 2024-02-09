@@ -28,42 +28,12 @@ public class TextUserInterface {
 		System.out.println("What function would you like" // Gives the user the Available functions
 				+ "\nto complete?");
 		System.out.println("[S]how all current tasks");
-		System.out.println("[A]dd a new task");
 		System.out.println("Add a new [P]ersonal task");
 		System.out.println("Add a new [W]ork task");
 		System.out.println("Add a new [T]eamwork task");
 		System.out.println("[R]emove an existing task");
 		System.out.println("[E]xit the program");
 		return sc.nextLine();
-	}
-	
-	public Task addTask() {
-		int userInputID;
-		String userInputName, userInputDescription;
-		
-		while (true) { // Asks the user for an int and then iterates if an Integer error occurred
-			try {
-				System.out.println("Enter task ID: ");
-				userInputID = sc.nextInt();
-				sc.nextLine(); // gets rid of new line character that nextInt hasnt parsed
-			} catch (InputMismatchException e) { // catches exception if user entered a non integer
-				System.out.print("Error, a non integer was entered...");
-				sc.nextLine();
-				continue;
-			}
-			break;
-		}
-		
-		do { // keeps on asking user to name task until a non-empty string is entered
-			System.out.println("Enter new task name: "); 
-			userInputName = sc.nextLine();
-		} while (userInputName.equals("")); 
-		
-		System.out.println("Enter new task description(Optional): "); // Only asks user once as description is optional
-		userInputDescription = sc.nextLine();
-		
-		return new Task(userInputID, userInputName, userInputDescription); // adds new task to arrayList
-		
 	}
 	
 	public Task addPersonalTask() {
