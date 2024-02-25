@@ -1,7 +1,7 @@
 package taskManagementSystem;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 class TaskManagerTest {
@@ -11,12 +11,14 @@ class TaskManagerTest {
 		TaskManager testTaskManager = new TaskManager();
 		assertNotNull(testTaskManager);
 		Task testTask = new PersonalTask(0, "test_task");
-		assertNotNull(testTask);
-		assertSame("Task added", testTaskManager.addTask(testTask));
-		assertNotSame("Task added", testTaskManager.addTask(testTask));
-		assertSame("Operation Invalid, Task already exists", testTaskManager.addTask(testTask));
-		assertNotNull(testTaskManager.getTask(0));
+		Task testTask2 = new PersonalTask(1, "test_task2");
+		assertAll(() -> testTaskManager.addTask(testTask));
+		assertAll(() -> testTaskManager.addTask(testTask2));
 		assertSame(testTask, testTaskManager.getTask(0));
+		assertNotSame(testTask, testTaskManager.getTask(1));
+		assertNotNull(testTaskManager.getTask(0));
+		assertSame(testTask2, testTaskManager.getTask(1));
+		assertThrows(TaskDuplicationException.class, () -> testTaskManager.addTask(testTask2));
 	}
 	
 	@Test
@@ -24,12 +26,9 @@ class TaskManagerTest {
 		TaskManager testTaskManager = new TaskManager();
 		assertNotNull(testTaskManager);
 		Task testTask = new PersonalTask(0, "test_task");
-		assertNotNull(testTask);
-		assertSame("Task added", testTaskManager.addTask(testTask));
-		assertNotNull(testTaskManager.getTask(0));
-		assertSame(testTask, testTaskManager.getTask(0));
-		assertSame("Success", testTaskManager.removeTask(0));
-		assertSame("Failure, task doesnt exist", testTaskManager.removeTask(1));
+		assertAll(() -> testTaskManager.addTask(testTask));
+		assertThrows(TaskNotFoundException.class, () -> testTaskManager.removeTask(0));
+		assertAll(() -> testTaskManager.removeTask(1));
 	}
 	
 	@Test
@@ -37,12 +36,14 @@ class TaskManagerTest {
 		TaskManager testTaskManager = new TaskManager();
 		assertNotNull(testTaskManager);
 		Task testTask = new WorkTask(0, "test_task");
-		assertNotNull(testTask);
-		assertSame("Task added", testTaskManager.addTask(testTask));
-		assertNotSame("Task added", testTaskManager.addTask(testTask));
-		assertSame("Operation Invalid, Task already exists", testTaskManager.addTask(testTask));
-		assertNotNull(testTaskManager.getTask(0));
+		Task testTask2 = new WorkTask(1, "test_task");
+		assertAll(() -> testTaskManager.addTask(testTask));
+		assertAll(() -> testTaskManager.addTask(testTask2));
 		assertSame(testTask, testTaskManager.getTask(0));
+		assertNotSame(testTask, testTaskManager.getTask(1));
+		assertNotNull(testTaskManager.getTask(0));
+		assertSame(testTask2, testTaskManager.getTask(1));
+		assertThrows(TaskDuplicationException.class, () -> testTaskManager.addTask(testTask2));
 	}
 	
 	@Test
@@ -50,12 +51,9 @@ class TaskManagerTest {
 		TaskManager testTaskManager = new TaskManager();
 		assertNotNull(testTaskManager);
 		Task testTask = new WorkTask(0, "test_task");
-		assertNotNull(testTask);
-		assertSame("Task added", testTaskManager.addTask(testTask));
-		assertNotNull(testTaskManager.getTask(0));
-		assertSame(testTask, testTaskManager.getTask(0));
-		assertSame("Success", testTaskManager.removeTask(0));
-		assertSame("Failure, task doesnt exist", testTaskManager.removeTask(1));
+		assertAll(() -> testTaskManager.addTask(testTask));
+		assertThrows(TaskNotFoundException.class, () -> testTaskManager.removeTask(0));
+		assertAll(() -> testTaskManager.removeTask(1));
 	}
 	
 	@Test
@@ -63,12 +61,14 @@ class TaskManagerTest {
 		TaskManager testTaskManager = new TaskManager();
 		assertNotNull(testTaskManager);
 		Task testTask = new TeamWorkTask(0, "test_task", "");
-		assertNotNull(testTask);
-		assertSame("Task added", testTaskManager.addTask(testTask));
-		assertNotSame("Task added", testTaskManager.addTask(testTask));
-		assertSame("Operation Invalid, Task already exists", testTaskManager.addTask(testTask));
-		assertNotNull(testTaskManager.getTask(0));
+		Task testTask2 = new TeamWorkTask(1, "test_task_2", "");
+		assertAll(() -> testTaskManager.addTask(testTask));
+		assertAll(() -> testTaskManager.addTask(testTask2));
 		assertSame(testTask, testTaskManager.getTask(0));
+		assertNotSame(testTask, testTaskManager.getTask(1));
+		assertNotNull(testTaskManager.getTask(0));
+		assertSame(testTask2, testTaskManager.getTask(1));
+		assertThrows(TaskDuplicationException.class, () -> testTaskManager.addTask(testTask2));
 	}
 	
 	@Test
@@ -76,11 +76,8 @@ class TaskManagerTest {
 		TaskManager testTaskManager = new TaskManager();
 		assertNotNull(testTaskManager);
 		Task testTask = new TeamWorkTask(0, "test_task", "");
-		assertNotNull(testTask);
-		assertSame("Task added", testTaskManager.addTask(testTask));
-		assertNotNull(testTaskManager.getTask(0));
-		assertSame(testTask, testTaskManager.getTask(0));
-		assertSame("Success", testTaskManager.removeTask(0));
-		assertSame("Failure, task doesnt exist", testTaskManager.removeTask(1));
+		assertAll(() -> testTaskManager.addTask(testTask));
+		assertThrows(TaskNotFoundException.class, () -> testTaskManager.removeTask(0));
+		assertAll(() -> testTaskManager.removeTask(1));
 	}
 }

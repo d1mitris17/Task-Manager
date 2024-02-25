@@ -20,10 +20,7 @@ public abstract class Task {
 	}
 
 	public String getDetails() { // returns textual representation of class
-		if (this.description.equals(null) || this.description.equals(""))
-			return "ID: " + this.ID + "\nName: " + this.name;
-		else
-			return "ID: " + this.ID + "\nName: " + this.name + "\nDescription: " + this.description;
+		return "ID: " + this.ID + "\nName: " + this.name + "\nDescription: " + this.description;
 
 	}
 

@@ -7,24 +7,23 @@ public class TaskManager extends ArrayList<Task>{
 	public TaskManager() { // initialise arrayList on object creation
 	}
 
-	public String addTask(Task newTask) { 
+	public void addTask(Task newTask) throws TaskDuplicationException { 
 		for (Task task : this) { // loops tasks to see if task ID exists already
 			if(task.getID() == newTask.getID()) {
-				return "Operation Invalid, Task already exists"; // use return statement to stop loop from continuing
+				throw new TaskDuplicationException(); // throw exception if task already exists
 			}
 		}
 		this.add(newTask); // adds task if return statement is not reached - task ID is unique 
-		return "Task added";
 	}
 
-	public String removeTask(int removeID) {
+	public void removeTask(int removeID) throws TaskNotFoundException {
 		for (int i = 0; i < this.getSize(); i++) { // loops tasks to see if task ID exists to remove
 			if(this.get(i).getID() == removeID) {
 				this.remove(i); // removes task from list
-				return "Success"; // ends function when task ID is found and removed
+				return; // ends function when task ID is found and removed
 			}
 		}
-		return "Failure, task doesnt exist"; // prints fail message if task ID is not found and return is not reached
+		throw new TaskNotFoundException(); // throw exception if task ID is not found
 	}
 
 	public int getSize() { // makes it easier to get the task arrayList size
@@ -46,5 +45,4 @@ public class TaskManager extends ArrayList<Task>{
 		return s;
 
 	}
-
 }
