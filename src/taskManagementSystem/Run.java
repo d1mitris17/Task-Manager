@@ -12,7 +12,7 @@ public class Run {
 
 		ui.welcomeMessage(); // welcome user and tells them how to interact
 
-		taskReader.readTasks(tasks); // 
+		taskReader.readTasks(tasks,"tasks.txt"); // 
 
 		ui.printTasks(tasks); // prints all tasks saved to text file 
 		ui.printRemindables(tasks); // prints all saved tasks that need to be reminded
@@ -47,7 +47,7 @@ public class Run {
 			}
 
 			case "E": { // Terminates loop and ends program
-				taskWriter.writeTasks(tasks);
+				taskWriter.writeTasks(tasks, "tasks.txt");
 				ui.endProgram();
 				run = false; // sets run to false to stop iterating
 				break;

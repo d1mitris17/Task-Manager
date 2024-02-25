@@ -1,0 +1,13 @@
+Task Type: Personal
+ID: 0
+Name: PersonalTask
+Description: 
+Task Type: Work
+ID: 1
+Name: WorkTask
+Description: 
+Task Type: Teamwork
+ID: 2
+Name: TeamworkTask
+Description: 
+Team Name: TestTeam

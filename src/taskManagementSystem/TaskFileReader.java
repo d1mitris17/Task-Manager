@@ -11,9 +11,9 @@ public class TaskFileReader {
 		
 	}
 
-	public void readTasks(TaskManager tasks) {
+	public void readTasks(TaskManager tasks, String filename) {
 		try { // read existing file and add saved tasks to task list
-			BufferedReader br = new BufferedReader(new FileReader("tasks.txt")); // create new buffered reader
+			BufferedReader br = new BufferedReader(new FileReader(filename)); // create new buffered reader
 
 			String line = br.readLine(); // reads the first line of the file
 			while(line != null) {
@@ -26,7 +26,7 @@ public class TaskFileReader {
 				}
 				case "Work": {
 					tasks.add(new WorkTask(Integer.parseInt(br.readLine().replace("ID: ", "")),
-							br.readLine().replace("Name: ", ""), br.readLine().replace("Descriptione: ", "")));
+							br.readLine().replace("Name: ", ""), br.readLine().replace("Description: ", "")));
 					break;
 				}
 				case "Personal": {

@@ -10,9 +10,9 @@ public class TaskFileWriter {
 		
 	}
 	
-	public void writeTasks(TaskManager tasks) {
+	public void writeTasks(TaskManager tasks, String filename) {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("tasks.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
 			for (Task task : tasks) {
 				bw.write(task.getDetails() + "\n");
 			}

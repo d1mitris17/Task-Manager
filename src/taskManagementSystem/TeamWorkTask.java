@@ -18,7 +18,7 @@ public class TeamWorkTask extends Task implements Remindable{
 	}
 
 	public String remindUser() {
-		return ("Remember to complete " + this.getName() + " task!");
+		return ("Remember to complete '" + this.getName() + "' task!");
 		
 	}
 }
